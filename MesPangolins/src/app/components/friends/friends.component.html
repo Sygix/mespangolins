@@ -1,0 +1,14 @@
+<ul class="flex flex-col p-4 gap-4 items-center w-full border rounded-xl">
+    <li class="mb-3 underline">Mes Amis</li>
+    <li *ngFor="let friend of friends" class="w-full flex justify-between items-center">
+        <div class="flex gap-2">
+            <p>{{friend.name}}</p>
+            <p class="italic">{{friend.friendsStatus === 1 ? 'Demandé' : friend.friendsStatus === 2 ? 'En Attente' : friend.friendsStatus === 3 ? 'Amis' : 'Pas encore amis'}}</p>
+        </div>
+        <div class="flex gap-2">
+            <button *ngIf="friend.friendsStatus === 1" (click)="accept(friend.id)" type="button" class="p-4 rounded-full bg-green-900">Accepter</button>
+            <button *ngIf="friend.friendsStatus === 1" (click)="reject(friend.id)" type="button" class="p-4 rounded-full bg-red-900">Rejeter</button>
+            <button *ngIf="friend.friendsStatus === 3 || friend.friendsStatus === 2" (click)="del(friend.id)" type="button" class="p-4 rounded-full bg-red-900">Supprimer</button>
+        </div>
+    </li>
+</ul>

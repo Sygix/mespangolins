@@ -1,0 +1,26 @@
+<div class="flex justify-center">
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="flex flex-col p-4 gap-4 items-center w-fit border rounded-xl">
+    <h3 class="mb-3 text-center">Connectez-vous</h3>
+    <p *ngIf="error" class="text-center text-red-900">{{error}}</p>
+    <div class="w-full flex justify-between items-center">
+      <label>Email</label>
+      <input
+        class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl"
+        type="email"
+        formControlName="email"
+        placeholder="Entrer votre email"
+        required
+      />
+    </div>
+    <div class="w-full flex justify-between items-center">
+      <label>Password</label>
+      <input
+        class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl"
+        type="password"
+        formControlName="password"
+        placeholder="Mot de passe"
+      />
+    </div>
+    <button class="p-2 px-4 rounded-full bg-neutral-800 disabled:cursor-not-allowed" type="submit" [disabled]="!loginForm.valid" >Connexion</button>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="flex justify-center">
+    <form
+      [formGroup]="registerForm"
+      (ngSubmit)="register()"
+      class="flex flex-col p-4 gap-4 items-center w-fit border rounded-xl"
+    >
+      <h3 class="h3 mb-3 font-normal text-center">Création de compte</h3>
+      <p *ngFor="let err of errors" class="text-center text-red-900">{{err.msg}}</p>
+      <div class="w-full flex justify-between items-center">
+        <label>Nom</label>
+        <input
+          class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl"
+          type="text"
+          formControlName="name"
+          placeholder="Enter name"
+          required
+        />
+      </div>
+      
+      <div class="w-full flex justify-between items-center">
+        <label>Email</label>
+        <input
+          class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl"
+          type="email"
+          formControlName="email"
+          placeholder="Entrez votre email"
+          required
+        />
+      </div>
+      <div>
+        <label>Mot de passe</label>
+        <input
+          class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl"
+          type="password"
+          formControlName="password"
+          placeholder="Mot de passe"
+          required
+        />
+      </div>
+      <button class="p-2 px-4 rounded-full bg-neutral-800 disabled:cursor-not-allowed" [disabled]="!registerForm.valid" type="submit">Créer un compte</button>
+    </form>
+</div>

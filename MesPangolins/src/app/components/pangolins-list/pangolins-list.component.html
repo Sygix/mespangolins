@@ -1,0 +1,7 @@
+<ul *ngIf="pangolins" class="flex flex-col p-4 gap-4 items-center w-full border rounded-xl">
+    <li class="mb-3 underline">Liste des pangolins</li>
+    <li *ngFor="let pangolin of pangolins" class="w-full flex justify-between items-center">
+        <p>{{pangolin.name}}</p>
+        <button (click)="addFriend(pangolin._id)" type="button" class="p-4 rounded-full bg-neutral-800">Ajouter l'amis</button>
+    </li>
+</ul>

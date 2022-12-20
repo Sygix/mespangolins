@@ -1,0 +1,23 @@
+<div *ngIf="currentUser" class="flex flex-col p-4 gap-4 items-center w-full border rounded-xl">
+    <h2 class="mb-3 text-center underline">Mon profil de Pangolin</h2>
+    <div class="w-full flex justify-between items-center">
+        <label for="name">Nom : </label>
+        <input class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl" id="name" [(ngModel)]="currentUser.name" placeholder="name" type="text">
+    </div>
+    <div class="w-full flex justify-between items-center">
+        <label for="name">Email : </label>
+        <input class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl" id="name" [(ngModel)]="currentUser.email" placeholder="name" type="text">
+    </div>
+    <div class="w-full flex justify-between items-center">
+        <label for="name">Role : </label>
+        <select [(ngModel)]="currentUser.role" class="mx-4 bg-neutral-800 p-2 px-4 rounded-xl">
+            <option *ngFor="let role of roles" [ngValue]="role">{{role}}</option>
+        </select>
+    </div>
+    
+    <div class="w-full flex justify-center gap-4 items-center">
+        <button (click)="saveProfile()" type="button" class="p-4 rounded-full bg-neutral-900">Sauvegarder le profil</button>
+        <button (click)="delProfile()" type="button" class="p-4 rounded-full bg-red-900">Supprimer le profil</button>
+    </div>
+    
+</div>

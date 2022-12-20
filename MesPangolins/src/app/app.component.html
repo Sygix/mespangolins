@@ -1,0 +1,13 @@
+<div
+  class="flex flex-column justify-between items-center p-3 mb-3 bg-neutral-800 shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">Mes Pangolins</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a *ngIf="this.authService.isLoggedIn" class="p-2" routerLinkActive="active" routerLink="/home">Accueil</a>
+    <a *ngIf="!this.authService.isLoggedIn" class="p-2" routerLinkActive="active" routerLink="/login">Connexion</a>
+    <a *ngIf="!this.authService.isLoggedIn" class="" routerLinkActive="active"
+    routerLinkActive="active" routerLink="/register">Créer un compte</a>
+    
+    <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="p-4 rounded-full bg-neutral-900">Déconnexion</button>
+  </nav>
+</div>
+<router-outlet></router-outlet>
