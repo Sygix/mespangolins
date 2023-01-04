@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 import { Pangolin } from '../Pangolin';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PangolinService {
-  ApiURL = 'http://localhost:4000/api';
+  ApiURL = environment.ApiURL;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

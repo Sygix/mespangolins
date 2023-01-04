@@ -11,7 +11,7 @@ import Friend from './models/Friend.js';
 dotenv.config()
 
 mongoose.set('strictQuery', false);
-const mongoURI = `mongodb://${process.env.MONGODB_ADDRESS}/${process.env.MONGODB_DATABASE}`;
+const mongoURI = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_ADDRESS}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DATABASE}`;
 
 const dbconnect = mongoose
     .connect(mongoURI)
@@ -21,6 +21,7 @@ const dbconnect = mongoose
         Friend.createCollection();
     })
     .catch((err) => {
+        console.log('URI: ' + mongoURI); //LOG
         console.error('Error connecting to mongo', err.reason); //LOG
     });
 

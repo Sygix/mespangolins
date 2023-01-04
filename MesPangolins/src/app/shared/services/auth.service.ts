@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { Pangolin } from '../Pangolin';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  ApiURL = 'http://localhost:4000/api';
+  ApiURL = environment.ApiURL;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
