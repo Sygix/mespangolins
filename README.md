@@ -18,6 +18,7 @@ Installation et démarrage du backend (Serveur ExpressJS pour l'api et Mongo)
 Installation et émarrage du frontend en development mode avec AngularCLI \
 Ce projet utilise Yarn
 ```bash
+  cd MesPangolins
   yarn install
   ng serve
 ```
